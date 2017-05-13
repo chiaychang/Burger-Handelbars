@@ -26,10 +26,10 @@ router.post("/", function(req, res) {
 
 
 router.put("/:id", function(req, res) {
-  var devourPick = req.params.id;
-
+  console.log(req.params.id);
+  devourPick = req.params.id; 
   burger.updateOne(devourPick, function() {
-    res.redirect("/");
+   res.redirect("/");
   });
 });
 

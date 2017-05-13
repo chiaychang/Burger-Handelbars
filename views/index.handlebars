@@ -1,0 +1,46 @@
+
+<link rel="stylesheet" type="text/css" href="../public/assets/css/burger_style.css">
+<div class="row">
+  <div id="unDevoured" class="container col-md-5">
+    <ul>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <div class="unDevourBs">
+            {{this.burger_name}}
+          </div>
+          <div class="devourBtn">
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+              <button type="submit" class="devourBtns"> DEVOUR it!</button>
+            </form>
+          </div>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-md-2"></div>
+  <div id="devoured" class="container col-md-5">
+    <ul>
+      {{#each burgers}}
+        {{#if this.devoured}}
+          <div class="devourBs"> 
+            {{this.burger_name}}
+          </div>
+             <p>YUM!!!</p>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+  <div class="row">
+    <h2>Enter A Burger!</h2>
+      <form class="add-burger" action="/" method="POST">
+
+        <div class="form-group">
+          <label for="burger"> Burger name: </label>
+          <input type="text" id="burger" name="name">
+        </div>
+
+        <button type="submit"> Add Burger </button>
+      </form>
+  </div>
+

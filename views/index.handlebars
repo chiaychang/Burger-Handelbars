@@ -19,10 +19,10 @@
         {{#unless this.devoured}}
           <div class="unDevourBs">
             {{this.burger_name}}
-          </div>       
+          </div>     
+         {{!--  devuor it button  --}}  
           <div class="devourBtn">
             <form action="/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="id" value="{{this.id}}">
               <button type="submit" class="devourBtns"> DEVOUR it!</button>
             </form>
           </div>
@@ -51,7 +51,7 @@
           <label for="burger"> Burger name: </label>
           <input type="text" id="burger" name="name">
         </div>
-        <button type="submit"> Add Burger </button>
+        <button type="submit"> Add</button>
       </form>
   </div>
 </div>

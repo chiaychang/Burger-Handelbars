@@ -26,6 +26,17 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/controllers.js");
 app.use("/", routes);
 
+
+var connection = require("./config/connection.js");
+function resetTable () {
+        connection.query("TRUNCATE TABLE burgers", function(err, result){
+            if(err){
+                throw err;
+            }
+            return(result);
+        });
+    }
+resetTable();
 // Starts the server to begin listening
 // =============================================================
 app.listen(port, function() {
